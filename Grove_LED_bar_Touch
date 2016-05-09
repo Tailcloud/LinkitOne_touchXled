@@ -1,0 +1,21 @@
+#include <Grove_LED_Bar.h>
+
+Grove_LED_Bar bar(9,8,0);
+#define TOUCH_PIN  2
+#define LED_PIN  8
+
+void setup() {
+  bar.begin();
+  pinMode(2,INPUT);
+}
+void loop() {
+  int val = digitalRead(TOUCH_PIN);
+  if(val == 1){
+    for(int x = 0 ; x <= 10 ; x++){
+      bar.setLevel(x);
+      delay(100);
+    }
+  }else{
+    bar.setLevel(10);
+    delay(100);
+  }
